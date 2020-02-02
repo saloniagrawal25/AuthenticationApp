@@ -15,15 +15,15 @@
           </div>
         </div>
       </div>
-      <form class="sign-up" action="#">
+      <form class="sign-up" method="post" action="https://iotharsh.herokuapp.com/signup">
         <h2>Create User</h2>
         <div>Use your email for registration</div>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input name="userName" type="text" placeholder="Name" />
+        <input name="userEmail" type="email" placeholder="Email" />
+        <input name="userPassword" type="password" placeholder="Password" />
         <button>Sign Up</button>
       </form>
-      <form class="sign-in" method="post" action="https://iotharsh.herokuapp.com/login">
+      <form class="sign-in" method="post" action="https://iotharsh.herokuapp.com/signin">
         <h2>SIGN IN</h2>
         <div>Use your account</div>
         <input name="userEmail" type="email" placeholder="Email" />
