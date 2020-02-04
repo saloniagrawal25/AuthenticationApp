@@ -78,14 +78,13 @@ export default {
   }
   @mixin overlays($property) {
     position: absolute;
-    top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    padding: 70px 85px;
-    width: calc(50% -80px);
-    height: calc(100% -140px);
+    padding: 84px 38px;
+    width: 40%;
+    height: 65%;
     text-align: center;
     transform: translateX($property);
     transition: transform 0.5s ease-in-out;
@@ -100,9 +99,11 @@ export default {
 }
 h2 {
   margin: 0;
+  font-size: 2rem;
 }
 p {
   margin: 20px 0 30px;
+  font-size: 1.2rem;
 }
 a {
   color: #222;
@@ -141,7 +142,7 @@ form {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  padding: 90px 38px;
+  padding: 84px 38px;
   width: 40%;
   height: 65%;
   text-align: center;
@@ -211,6 +212,27 @@ form {
   50% {
     opacity: 1;
     z-index: 10;
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+  .container {
+    width: 320px;
+  }
+  .overlay-left {
+    width: 100%;
+    transform: translateY(0);
+    align-items: center;
+  }
+  .overlay-right {
+    width: 100%;
+    transform: translateY(-20%);
+    align-items: center;
+  }
+  form {
+    width: 320px;
+    align-items: center;
+    padding: 84px 0;
   }
 }
 </style>

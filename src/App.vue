@@ -22,14 +22,21 @@ export default {
   font-size: 1rem;
   color: #222;
   background-color: #004593;
-  width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url("./assets/Background.jpg");
   background-size: cover;
   margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
 body {
   margin: 0;
