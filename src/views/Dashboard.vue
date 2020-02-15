@@ -3,20 +3,15 @@
     <v-container>
       <v-layout row class="ma-4">
         <v-app style="background-color: grey lighten-1;" class="rounded"></v-app>
-        <v-row>
-          <v-col cols="12" md="8" class="light"></v-col>
-        </v-row>
       </v-layout>
     </v-container>
   </v-app>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   data: () => ({}),
-  name: "home",
+  name: "dashboard",
   components: {},
   computed: {
     theme() {
@@ -25,6 +20,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .rounded {
   border-radius: 30px;
