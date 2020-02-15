@@ -1,12 +1,35 @@
 <template>
   <nav>
-    <v-navigation-drawer v-model="drawer" dark app class="teal">
+    <v-app-bar app clipped-left light class="white" flat>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" app></v-app-bar-nav-icon>
+      <v-avatar>
+        <v-icon x-large>fab fa-pied-piper-alt</v-icon>
+      </v-avatar>
+      <span class="title ml-3 mr-5">Smart Switch</span>
+
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+      <v-menu left bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" clipped light app class="white" floating>
       <v-layout column align-center>
-        <v-flex class="mt-8 mb-5">
-          <v-avatar>
-            <v-icon x-large>fab fa-pied-piper-alt</v-icon>
-          </v-avatar>
-        </v-flex>
+        <v-flex class="mt-2 mb-2"></v-flex>
       </v-layout>
       <v-list>
         <v-list-item
@@ -24,23 +47,6 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <v-flex class="ma-2">
-        <template>
-          <v-carousel cycle dark height="230" height-delimiter-background show-arrows-on-hover>
-            <v-carousel-item v-for="(slide,i) in slides" :key="i">
-              <v-sheet color="white" height="80%" align="center" tile>
-                <v-row class="fill-height" align="center" justify="center">
-                  <div class="grey--text">
-                    <h4>Suggested Ideas</h4>
-                    <p class="ma-2">{{slide}}</p>
-                    <v-btn outlined color="indigo">Read More</v-btn>
-                  </div>
-                </v-row>
-              </v-sheet>
-            </v-carousel-item>
-          </v-carousel>
-        </template>
-      </v-flex>
     </v-navigation-drawer>
   </nav>
 </template>
@@ -51,14 +57,14 @@ export default {
     drawer: true,
     links: [
       {
-        icon: "fas fa-home",
-        text: "Home",
-        route: "/"
+        icon: "fas fa-th-large",
+        text: "Dashboard",
+        route: "/dashboard"
       },
       {
         icon: "fas fa-tachometer-alt",
-        text: "Energy",
-        route: "/Energy"
+        text: "Statistics",
+        route: "/statistics"
       },
       {
         icon: "fas fa-user",
@@ -73,19 +79,13 @@ export default {
       {
         icon: "fas fa-sign-out-alt",
         text: "Log Out",
-        route: "/sign-out"
+        route: "/signout"
       },
       {
         icon: "fas fa-info-circle",
         text: "About",
-        route: "/About"
+        route: "/about"
       }
-    ],
-    slides: [
-      "IOT is used for this Smart Switch",
-      "IOT is used for this Smart Switch",
-      "IOT is used for this Smart Switch",
-      "IOT is used for this Smart Switch"
     ]
   })
 };
@@ -93,5 +93,8 @@ export default {
 <style scoped>
 .border {
   border-left: 4px solid#2c3e50;
+}
+#keep .v-navigation-drawer__border {
+  display: none;
 }
 </style>
