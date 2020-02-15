@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.71eafcf65bd2eae1af3097aa85c30e95.js"
+  "/precache-manifest.64a295486437f5cf0cf2d1f765b5a38f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "iot-switch-ui"});
