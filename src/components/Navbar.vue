@@ -27,7 +27,16 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" clipped light app class="white" floating>
+    <v-navigation-drawer
+      v-model="drawer"
+      clipped
+      light
+      app
+      class="white"
+      floating
+      mini-variant
+      expand-on-hover
+    >
       <v-layout column align-center>
         <v-flex class="mt-2 mb-2"></v-flex>
       </v-layout>
@@ -40,10 +49,10 @@
           activeclass="border"
         >
           <v-list-item-action>
-            <v-icon>{{link.icon}}</v-icon>
+            <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>{{link.text}}</v-list-item-title>
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -54,7 +63,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
     links: [
       {
         icon: "fas fa-th-large",
@@ -90,6 +99,7 @@ export default {
   })
 };
 </script>
+
 <style scoped>
 .border {
   border-left: 4px solid#2c3e50;

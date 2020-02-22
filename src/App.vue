@@ -1,21 +1,16 @@
 <template>
-  <v-app>
-    <Navbar />
-    <v-content>
+  <main>
+    <transition mode="out-in">
       <router-view></router-view>
-    </v-content>
-  </v-app>
+    </transition>
+  </main>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
-
 export default {
   name: "App",
 
-  components: {
-    Navbar
-  },
+  components: {},
 
   data: () => ({
     //
