@@ -13,10 +13,16 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        background: colors.teal.accent2
+        background: colors.teal.accent2,
+        primary: "#FFA726",
+        secondary: "#29B6F6",
+        anyColor: "#0000"
       },
       dark: {
-        background: colors.teal
+        background: colors.teal,
+        primary: "#FFA726",
+        secondary: "#29B6F6",
+        anyColor: "#0000"
       }
     }
   }

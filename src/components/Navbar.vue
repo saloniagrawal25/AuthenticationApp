@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar app clipped-left light class="white" flat>
+    <v-app-bar app clipped-left light class="gradient">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" app></v-app-bar-nav-icon>
       <v-avatar>
         <v-icon x-large>fab fa-pied-piper-alt</v-icon>
@@ -32,7 +32,7 @@
       clipped
       light
       app
-      class="white"
+      class="gradientlight"
       floating
       mini-variant
       expand-on-hover
@@ -63,7 +63,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: false,
+    drawer: true,
     links: [
       {
         icon: "fas fa-th-large",
@@ -107,4 +107,17 @@ export default {
 #keep .v-navigation-drawer__border {
   display: none;
 }
+.gradient {
+  background-image: linear-gradient(to right, #84cf6f, #16c0b0);
+}
+.gradientlight {
+  background-image: linear-gradient(to bottom, #84cf6f, #16c0b0);
+}
+
+/* .nav-bar {
+  background: linear-gradient(-90deg, #84cf6a, #16c0b0);
+  height: 60px;
+  margin-bottom: 15px;
+  background-image: linear-gradient(to right bottom, #4ed2b6);
+} */
 </style>
