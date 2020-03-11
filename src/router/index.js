@@ -4,17 +4,13 @@ import Dashboard from "../views/Dashboard.vue";
 import About from "../views/About.vue";
 import Home from "../components/Layouts/Home.vue";
 import Panel from "../components/Panel.vue";
-import SignUp from "../components/Layouts/SignUp.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
     component: Home
-  },
-  {
-    path: "/signUp",
-    component: SignUp
   },
   {
     path: "/panel",

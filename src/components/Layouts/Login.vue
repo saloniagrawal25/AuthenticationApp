@@ -103,7 +103,7 @@ export default {
       this.$router.push("/panel");
     },
     signUp() {
-      this.$router.push("/signUp");
+      this.$router.push("/signup");
     }
   }
 };
