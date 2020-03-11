@@ -1,7 +1,10 @@
 <template>
   <nav>
     <v-app-bar app clipped-left light class="gradient">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" app></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        @click.stop="drawer = !drawer"
+        app
+      ></v-app-bar-nav-icon>
       <v-avatar>
         <v-icon x-large>fab fa-pied-piper-alt</v-icon>
       </v-avatar>

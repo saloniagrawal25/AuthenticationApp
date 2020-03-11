@@ -45,7 +45,8 @@
                 block
                 large
                 dark
-              >Log In</v-btn>
+                >Log In</v-btn
+              >
               <v-divider>Or</v-divider>
               <!-- <p class="justify-center">Or Login with</p> -->
               <v-col cols="12" sm="git 6">
@@ -55,11 +56,14 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-btn class="my-2 elevation-6" color="blue" dark>
-                  <v-icon right dark bold class="mr-2">mdi-facebook</v-icon>Facebook
+                  <v-icon right dark bold class="mr-2">mdi-facebook</v-icon
+                  >Facebook
                 </v-btn>
               </v-col>
               <v-row>
-                <a href class="pb-5 px-5" @click="signUp">Dont have an account!! Sign up Now</a>
+                <a href class="pb-5 px-5" @click="signUp"
+                  >Dont have an account!! Sign up Now</a
+                >
               </v-row>
               <!-- <v-spacer></v-spacer>
               <i class="fab fa-google"></i>-->
