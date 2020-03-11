@@ -48,7 +48,7 @@
               >Log In</v-btn>
               <v-divider>Or</v-divider>
               <!-- <p class="justify-center">Or Login with</p> -->
-              <v-col cols="12" sm="6">
+              <v-col cols="12" sm="git 6">
                 <v-btn class="my-2 elevation-6" color="red" dark>
                   <v-icon left dark bold class="mr-2">mdi-google</v-icon>Google
                 </v-btn>
