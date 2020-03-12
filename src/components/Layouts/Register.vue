@@ -1,14 +1,7 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="600px" min-width="360px">
     <div>
-      <v-tabs
-        v-model="tab"
-        show-arrows
-        background-color="#16c0b0"
-        icons-and-text
-        dark
-        grow
-      >
+      <v-tabs v-model="tab" show-arrows background-color="#16c0b0" icons-and-text dark grow>
         <v-tabs-slider color="#16c0b0"></v-tabs-slider>
         <v-tab v-for="i in tabs" :key="i">
           <v-icon large>{{ i.icon }}</v-icon>
@@ -47,20 +40,12 @@
                   <v-spacer></v-spacer>
                   <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
                     <v-btn large block color="pink darken-4" dark>
-                      <v-icon left dark bold class="mr-2">mdi-google</v-icon
-                      >Google
+                      <v-icon left dark bold class="mr-2">mdi-google</v-icon>Google
                     </v-btn>
                   </v-col>
                   <v-spacer></v-spacer>
                   <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
-                    <v-btn
-                      large
-                      block
-                      :disabled="!valid"
-                      color="success"
-                      @click="validate"
-                      >Login</v-btn
-                    >
+                    <v-btn large block :disabled="!valid" color="success" @click="validate">Login</v-btn>
                   </v-col>
                 </v-row>
               </v-form>
@@ -72,25 +57,17 @@
             <v-card-text>
               <v-form ref="registerForm" v-model="valid" lazy-validation>
                 <v-row>
-                  <v-col cols="12" sm="6" md="6">
+                  <v-col cols="12">
                     <v-text-field
                       v-model="firstName"
                       :rules="[rules.required]"
-                      label="First Name"
-                      maxlength="20"
+                      label="Name"
+                      maxlength="30"
                       required
                       prepend-icon="person"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="6">
-                    <v-text-field
-                      v-model="lastName"
-                      :rules="[rules.required]"
-                      label="Last Name"
-                      maxlength="20"
-                      required
-                    ></v-text-field>
-                  </v-col>
+
                   <v-col cols="12">
                     <v-text-field
                       v-model="email"
@@ -132,20 +109,12 @@
                   <v-spacer></v-spacer>
                   <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
                     <v-btn large block color="pink darken-4" dark>
-                      <v-icon left dark bold class="mr-2">mdi-google</v-icon
-                      >Google
+                      <v-icon left dark bold class="mr-2">mdi-google</v-icon>Google
                     </v-btn>
                   </v-col>
                   <v-spacer></v-spacer>
                   <v-col class="d-flex ml-auto" cols="12" sm="3" xsm="12">
-                    <v-btn
-                      large
-                      block
-                      :disabled="!valid"
-                      color="success"
-                      @click="validate"
-                      >Register</v-btn
-                    >
+                    <v-btn large block :disabled="!valid" color="success" @click="validate">Register</v-btn>
                   </v-col>
                 </v-row>
               </v-form>
@@ -180,7 +149,7 @@ export default {
   },
   data: () => ({
     dialog: true,
-    tab: 1,
+    tab: 0,
     tabs: [
       { name: "Login", icon: "mdi-account" },
       { name: "Register", icon: "mdi-account-outline" }
