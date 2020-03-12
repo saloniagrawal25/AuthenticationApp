@@ -1,6 +1,6 @@
 <template>
   <v-app id="home">
-    <Signup />
+    <Register />
     <v-content>
       <transition mode="out-in">
         <router-view></router-view>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Signup from "@/components/Layouts/Signup";
+import Register from "@/components/Layouts/Register";
 
 export default {
   name: "home",
   components: {
-    Signup
+    Register
   },
   data: () => ({
     //
