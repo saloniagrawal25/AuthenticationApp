@@ -10,7 +10,13 @@
         <v-tab-item>
           <v-card class="px-4">
             <v-card-text>
-              <v-form ref="loginForm" v-model="valid" lazy-validation>
+              <v-form
+                ref="loginForm"
+                v-model="valid"
+                lazy-validation
+                method="post"
+                action="https://iotharsh.herokuapp.com/auth/login"
+              >
                 <v-row>
                   <v-col cols="12">
                     <v-text-field
@@ -55,11 +61,17 @@
         <v-tab-item>
           <v-card class="px-4">
             <v-card-text>
-              <v-form ref="registerForm" v-model="valid" lazy-validation>
+              <v-form
+                ref="registerForm"
+                v-model="valid"
+                lazy-validation
+                method="post"
+                action="https://iotharsh.herokuapp.com/register"
+              >
                 <v-row>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="firstName"
+                      v-model="name"
                       :rules="[rules.required]"
                       label="Name"
                       maxlength="30"
@@ -105,10 +117,20 @@
                       prepend-icon="lock"
                     ></v-text-field>
                   </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="referral"
+                      :rules="[rules.required]"
+                      label="Referral"
+                      maxlength="20"
+                      required
+                      prepend-icon="fas fa-tags"
+                    ></v-text-field>
+                  </v-col>
                   <v-col class="d-flex" cols="12" sm="6" xsm="12"></v-col>
                   <v-spacer></v-spacer>
                   <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
-                    <v-btn large block color="pink darken-4" dark>
+                    <v-btn large block color="red darken-4" dark>
                       <v-icon left dark bold class="mr-2">mdi-google</v-icon>Google
                     </v-btn>
                   </v-col>
@@ -156,11 +178,11 @@ export default {
     ],
     valid: true,
 
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     password: "",
     verify: "",
+    referral: "",
     loginPassword: "",
     loginEmail: "",
     loginEmailRules: [
