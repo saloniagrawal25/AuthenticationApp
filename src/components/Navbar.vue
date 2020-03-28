@@ -1,14 +1,11 @@
 <template>
   <nav>
-    <v-app-bar app clipped-left light class="gradient">
-      <v-app-bar-nav-icon
-        @click.stop="drawer = !drawer"
-        app
-      ></v-app-bar-nav-icon>
+    <v-app-bar app clipped-left light class="gradient" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" app></v-app-bar-nav-icon>
       <v-avatar>
-        <v-icon x-large>fab fa-pied-piper-alt</v-icon>
+        <v-icon x-large dark>fab fa-pied-piper-alt</v-icon>
       </v-avatar>
-      <span class="title ml-3 mr-5">Smart Switch</span>
+      <span class="title ml-3 mr-5" light>Smart Switch</span>
 
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -39,6 +36,7 @@
       floating
       mini-variant
       expand-on-hover
+      dark
     >
       <v-layout column align-center>
         <v-flex class="mt-2 mb-2"></v-flex>
@@ -111,16 +109,9 @@ export default {
   display: none;
 }
 .gradient {
-  background-image: linear-gradient(to right, #84cf6f, #16c0b0);
+  background-image: linear-gradient(to right, #09a59b);
 }
 .gradientlight {
-  background-image: linear-gradient(to bottom, #84cf6f, #16c0b0);
+  background-image: linear-gradient(to bottom, #09a59b);
 }
-
-/* .nav-bar {
-  background: linear-gradient(-90deg, #84cf6a, #16c0b0);
-  height: 60px;
-  margin-bottom: 15px;
-  background-image: linear-gradient(to right bottom, #4ed2b6);
-} */
 </style>
