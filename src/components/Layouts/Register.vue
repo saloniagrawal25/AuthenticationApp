@@ -15,7 +15,7 @@
                 v-model="valid"
                 lazy-validation
                 method="post"
-                action="https://iotharsh.herokuapp.com/auth/login"
+                action="http://localhost:6969/auth/login"
               >
                 <v-row>
                   <v-col cols="12">
@@ -23,6 +23,7 @@
                       v-model="loginEmail"
                       :rules="loginEmailRules"
                       label="E-mail"
+                      name="userEmail"
                       required
                       prepend-icon="fas fa-envelope"
                     ></v-text-field>
@@ -33,7 +34,7 @@
                       :append-icon="show1 ? 'eye' : 'eye-off'"
                       :rules="[rules.required, rules.min]"
                       :type="show1 ? 'text' : 'password'"
-                      name="input-10-1"
+                      name="userPassword"
                       label="Password"
                       hint="At least 8 characters"
                       counter
@@ -51,7 +52,7 @@
                   </v-col>
                   <v-spacer></v-spacer>
                   <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
-                    <v-btn large block :disabled="!valid" color="success" @click="validate">Login</v-btn>
+                    <v-btn large block :disabled="!valid" color="success" @click="loginSubmit">Login</v-btn>
                   </v-col>
                 </v-row>
               </v-form>
@@ -66,7 +67,7 @@
                 v-model="valid"
                 lazy-validation
                 method="post"
-                action="https://iotharsh.herokuapp.com/register"
+                action="http://localhost:6969/register"
               >
                 <v-row>
                   <v-col cols="12">
@@ -74,6 +75,7 @@
                       v-model="name"
                       :rules="[rules.required]"
                       label="Name"
+                      name="userDisplayName"
                       maxlength="30"
                       required
                       prepend-icon="person"
@@ -85,6 +87,7 @@
                       v-model="email"
                       :rules="emailRules"
                       label="E-mail"
+                      name="userEmail"
                       required
                       prepend-icon="fas fa-envelope"
                     ></v-text-field>
@@ -95,7 +98,7 @@
                       :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                       :rules="[rules.required, rules.min]"
                       :type="show1 ? 'text' : 'password'"
-                      name="input-10-1"
+                      name="userPassword"
                       label="Password"
                       hint="At least 8 characters"
                       counter
@@ -110,7 +113,7 @@
                       :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                       :rules="[rules.required, passwordMatch]"
                       :type="show1 ? 'text' : 'password'"
-                      name="input-10-1"
+                      name="userPassword2"
                       label="Confirm Password"
                       counter
                       @click:append="show1 = !show1"
@@ -122,6 +125,7 @@
                       v-model="referral"
                       :rules="[rules.required]"
                       label="Referral"
+                      name="referral"
                       maxlength="20"
                       required
                       prepend-icon="fas fa-tags"
@@ -136,7 +140,13 @@
                   </v-col>
                   <v-spacer></v-spacer>
                   <v-col class="d-flex ml-auto" cols="12" sm="3" xsm="12">
-                    <v-btn large block :disabled="!valid" color="success" @click="validate">Register</v-btn>
+                    <v-btn
+                      large
+                      block
+                      :disabled="!valid"
+                      color="success"
+                      @click="registerSubmit"
+                    >Register</v-btn>
                   </v-col>
                 </v-row>
               </v-form>
@@ -156,10 +166,14 @@ export default {
     }
   },
   methods: {
-    validate() {
+    loginSubmit() {
       if (this.$refs.loginForm.validate()) {
-        // submit form to server/API here...
-        this.$router.push("/panel");
+        this.$refs.loginForm.$el.submit();
+      }
+    },
+    registerSubmit() {
+      if (this.$refs.registerForm.validate()) {
+        this.$refs.registerForm.$el.submit();
       }
     },
     reset() {
