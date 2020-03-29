@@ -1,28 +1,37 @@
 <template>
   <div class="dashboard">
     <v-container class="my-5">
-      <v-layout row wrap>
+      <v-layout row wrap class="justify-center">
         <v-flex xs12 sm6 md4 lg4 v-for="room in dashboard" :key="room.name">
-          <v-card flat class="text-xs-center ma-3" centered outlined shaped>
-            <v-card-title class="justify-center">
-              <v-icon large left>{{room.icon}}</v-icon>
-              <span class="title font-weight-light">{{ room.name }}</span>
-            </v-card-title>
-            <!-- <v-card-text>
-              <div class="headline black--text text-center">{{ room.name }}</div>
-            </v-card-text>-->
-            <v-layout justify-center>
-              <v-card-actions>
-                <v-row align="center">
-                  <v-col class="text-center" cols="12" sm="4">
-                    <div class="rooms text-center my-2" v-for="button in rooms" :key="button.id">
-                      <v-btn text color="pink" dark>{{button.name}}</v-btn>
-                    </div>
-                  </v-col>
-                </v-row>
-              </v-card-actions>
-            </v-layout>
-          </v-card>
+          <v-hover v-slot:default="{ hover }" close-delay="200">
+            <v-card :elevation="hover ? 16 : 2" flat class="text-xs-center ma-4" shaped>
+              <v-card-title class="justify-center">
+                <v-icon large left class="blue--text" dense>{{ room.icon }}</v-icon>
+              </v-card-title>
+              <v-card-text>
+                <div
+                  class="title black--text text-center blue--text font-weight-bold"
+                >{{ room.name }}</div>
+              </v-card-text>
+              <v-layout justify-center>
+                <v-card-actions>
+                  <v-row>
+                    <v-col>
+                      <div class="rooms my-2" v-for="button in rooms" :key="button.id">
+                        <v-switch
+                          inset
+                          dense
+                          color="orange"
+                          :label="button.name"
+                          prepend-icon="mdi-lightbulb"
+                        ></v-switch>
+                      </div>
+                    </v-col>
+                  </v-row>
+                </v-card-actions>
+              </v-layout>
+            </v-card>
+          </v-hover>
         </v-flex>
       </v-layout>
     </v-container>
@@ -33,6 +42,7 @@
 export default {
   data() {
     return {
+      switch1: true,
       dashboard: [
         { name: "Bed Room", icon: "fas fa-bed" },
         { name: "Living Room", icon: "fas fa-couch" },
@@ -41,30 +51,34 @@ export default {
       rooms: [
         {
           id: 1,
-          favorited: false,
-          name: "Fish Light"
+          value: false,
+          name: "Fish Light",
+          design: "mdi-lightbulb"
         },
         {
           id: 2,
-          favorited: false,
-          name: "Speaker"
+          value: false,
+          name: "Speaker",
+          design: "fas fa-lightbulb"
         },
         {
           id: 3,
-          favorited: false,
-          name: "Room Light"
+          value: false,
+          name: "Room Light",
+          design: "mdi-lightbulb"
         },
         {
           id: 4,
-          favorited: false,
-          name: "Good Night"
+          value: false,
+          name: "Good Night",
+          design: "fas fa-lightbulb"
         }
       ]
     };
   },
   methods: {
     toggle: function() {
-      this.favorited = !this.favorited;
+      this.value = !this.value;
     }
   }
 };
@@ -74,3 +88,10 @@ export default {
 .red {
   color: red;
 }
+.green {
+  background-color: #41b883;
+}
+.blue {
+  background-color: #35495e;
+}
+</style>
