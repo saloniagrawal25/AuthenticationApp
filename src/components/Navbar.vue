@@ -68,7 +68,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
     links: [
       {
         icon: "fas fa-th-large",

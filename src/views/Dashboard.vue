@@ -4,7 +4,12 @@
       <v-layout row wrap class="justify-center">
         <v-flex xs12 sm6 md4 lg4 v-for="room in dashboard" :key="room.name">
           <v-hover v-slot:default="{ hover }" close-delay="200">
-            <v-card :elevation="hover ? 16 : 2" flat class="text-xs-center ma-4" shaped>
+            <v-card
+              :elevation="hover ? 16 : 2"
+              flat
+              class="text-xs-center ma-4 rounded-corner"
+              shaped
+            >
               <v-card-title class="justify-center">
                 <v-icon large left class="blue--text" dense>{{ room.icon }}</v-icon>
               </v-card-title>
@@ -21,9 +26,10 @@
                         <v-switch
                           inset
                           dense
-                          color="orange"
+                          :color="button.color"
                           :label="button.name"
-                          prepend-icon="mdi-lightbulb"
+                          :prepend-icon="button.design"
+                          v-model="button.value"
                         ></v-switch>
                       </div>
                     </v-col>
@@ -42,7 +48,6 @@
 export default {
   data() {
     return {
-      switch1: true,
       dashboard: [
         { name: "Bed Room", icon: "fas fa-bed" },
         { name: "Living Room", icon: "fas fa-couch" },
@@ -53,25 +58,29 @@ export default {
           id: 1,
           value: false,
           name: "Fish Light",
-          design: "mdi-lightbulb"
+          design: "mdi-fish",
+          color: "blue"
         },
         {
           id: 2,
           value: false,
           name: "Speaker",
-          design: "fas fa-lightbulb"
+          design: "mdi-speaker",
+          color: "purple"
         },
         {
           id: 3,
           value: false,
           name: "Room Light",
-          design: "mdi-lightbulb"
+          design: "mdi-lightbulb",
+          color: "orange"
         },
         {
           id: 4,
           value: false,
           name: "Good Night",
-          design: "fas fa-lightbulb"
+          design: "mdi-weather-night",
+          color: "black"
         }
       ]
     };
@@ -93,5 +102,8 @@ export default {
 }
 .blue {
   background-color: #35495e;
+}
+.rounded-corner {
+  border-radius: 20px;
 }
 </style>
