@@ -15,7 +15,7 @@
                 v-model="valid"
                 lazy-validation
                 method="post"
-                action="http://localhost:6969/auth/login"
+                action="https://iotharsh.herokuapp.com/auth/login"
               >
                 <v-row>
                   <v-col cols="12">
@@ -67,7 +67,7 @@
                 v-model="valid"
                 lazy-validation
                 method="post"
-                action="http://localhost:6969/register"
+                action="https://iotharsh.herokuapp.com/register"
               >
                 <v-row>
                   <v-col cols="12">
